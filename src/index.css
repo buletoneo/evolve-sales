@@ -9,44 +9,52 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 218 11% 15%;
+    --foreground: 158 23% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 218 11% 15%;
+    --card-foreground: 158 23% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 218 11% 15%;
+    --popover-foreground: 158 23% 15%;
 
-    --primary: 239 84% 67%;
+    --primary: 162 72% 45%;
     --primary-foreground: 0 0% 100%;
+    --primary-hover: 162 72% 38%;
+    --primary-glow: 162 72% 55%;
 
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 218 11% 15%;
+    --secondary: 158 15% 96%;
+    --secondary-foreground: 158 23% 15%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 158 15% 96%;
+    --muted-foreground: 158 12% 46%;
 
-    --accent: 239 84% 67%;
+    --accent: 179 68% 52%;
     --accent-foreground: 0 0% 100%;
+    --accent-hover: 179 68% 45%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 239 84% 67%;
+    --border: 158 13% 91%;
+    --input: 158 13% 91%;
+    --ring: 162 72% 45%;
 
-    /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(239, 84%, 67%), hsl(262, 83%, 58%));
-    --gradient-secondary: linear-gradient(135deg, hsl(220, 14%, 96%), hsl(210, 20%, 98%));
-    --gradient-hero: linear-gradient(135deg, hsl(239, 84%, 67%) 0%, hsl(262, 83%, 58%) 50%, hsl(285, 85%, 53%) 100%);
+    /* Sophisticated emerald-teal design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(162, 72%, 45%), hsl(179, 68%, 52%));
+    --gradient-secondary: linear-gradient(135deg, hsl(158, 15%, 96%), hsl(165, 20%, 98%));
+    --gradient-hero: linear-gradient(135deg, hsl(162, 72%, 45%) 0%, hsl(179, 68%, 52%) 50%, hsl(195, 65%, 48%) 100%);
+    --gradient-accent: linear-gradient(45deg, hsl(162, 72%, 55%), hsl(179, 68%, 62%));
+    --gradient-subtle: linear-gradient(180deg, hsl(158, 30%, 98%), hsl(165, 25%, 95%));
     
-    --shadow-soft: 0 4px 12px -2px hsl(239 84% 67% / 0.08);
-    --shadow-medium: 0 8px 25px -5px hsl(239 84% 67% / 0.12);
-    --shadow-large: 0 20px 40px -12px hsl(239 84% 67% / 0.15);
+    --shadow-soft: 0 4px 12px -2px hsl(162 72% 45% / 0.08);
+    --shadow-medium: 0 8px 25px -5px hsl(162 72% 45% / 0.12);
+    --shadow-large: 0 20px 40px -12px hsl(162 72% 45% / 0.15);
+    --shadow-glow: 0 0 40px hsl(162 72% 55% / 0.25);
+    --shadow-elegant: 0 10px 30px -10px hsl(162 72% 45% / 0.2);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-spring: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --radius: 0.5rem;
 
@@ -113,5 +121,28 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Interactive Animations */
+  .story-link {
+    @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+  
+  .hover-scale {
+    @apply transition-all duration-300 ease-spring hover:scale-105 hover:shadow-elegant;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-500 ease-spring hover:shadow-glow;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 ease-spring hover:scale-[1.02] hover:shadow-large hover:-translate-y-1;
+  }
+  
+  .button-hover {
+    @apply transition-all duration-200 ease-spring hover:scale-105 hover:shadow-medium active:scale-95;
   }
 }

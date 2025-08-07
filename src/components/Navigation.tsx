@@ -6,13 +6,13 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border animate-fade-in">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover-scale cursor-pointer">
                 InvenPro
               </h1>
             </div>
@@ -23,25 +23,25 @@ const Navigation = () => {
             <div className="ml-10 flex items-baseline space-x-8">
               <a
                 href="#features"
-                className="text-foreground hover:text-primary transition-smooth px-3 py-2 text-sm font-medium"
+                className="text-foreground hover:text-primary transition-spring px-3 py-2 text-sm font-medium story-link"
               >
                 Features
               </a>
               <a
                 href="#benefits"
-                className="text-foreground hover:text-primary transition-smooth px-3 py-2 text-sm font-medium"
+                className="text-foreground hover:text-primary transition-spring px-3 py-2 text-sm font-medium story-link"
               >
                 Why Choose Us
               </a>
               <a
                 href="#pricing"
-                className="text-foreground hover:text-primary transition-smooth px-3 py-2 text-sm font-medium"
+                className="text-foreground hover:text-primary transition-spring px-3 py-2 text-sm font-medium story-link"
               >
                 Pricing
               </a>
               <a
                 href="#contact"
-                className="text-foreground hover:text-primary transition-smooth px-3 py-2 text-sm font-medium"
+                className="text-foreground hover:text-primary transition-spring px-3 py-2 text-sm font-medium story-link"
               >
                 Contact
               </a>
@@ -50,8 +50,8 @@ const Navigation = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost">Sign In</Button>
-            <Button variant="hero">Get Started</Button>
+            <Button variant="ghost" className="button-hover">Sign In</Button>
+            <Button variant="hero" className="button-hover hover:shadow-glow">Get Started</Button>
           </div>
 
           {/* Mobile menu button */}

@@ -83,30 +83,31 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <Card 
               key={index} 
-              className={`relative p-8 hover:shadow-large transition-smooth ${
+              className={`relative p-8 group card-hover animate-fade-in ${
                 plan.popular 
-                  ? 'border-primary shadow-medium ring-2 ring-primary/20' 
+                  ? 'border-primary shadow-medium ring-2 ring-primary/20 hover:shadow-glow' 
                   : 'border-border'
               }`}
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-gradient-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold flex items-center">
-                    <Star className="h-4 w-4 mr-1" />
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 animate-pulse-glow">
+                  <span className="bg-gradient-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold flex items-center shadow-elegant">
+                    <Star className="h-4 w-4 mr-1 animate-pulse" />
                     Most Popular
                   </span>
                 </div>
               )}
 
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-foreground mb-2">
+                <h3 className="text-2xl font-bold text-foreground mb-2 transition-colors group-hover:text-primary">
                   {plan.name}
                 </h3>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground mb-4 transition-colors group-hover:text-foreground">
                   {plan.description}
                 </p>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold text-foreground">
+                  <span className="text-4xl font-bold text-foreground transition-colors group-hover:text-primary">
                     {plan.price}
                   </span>
                   <span className="text-muted-foreground ml-2">
@@ -117,9 +118,9 @@ const Pricing = () => {
 
               <div className="space-y-4 mb-8">
                 {plan.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-start space-x-3">
-                    <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-muted-foreground">
+                  <div key={featureIndex} className="flex items-start space-x-3 hover-scale">
+                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5 transition-transform group-hover:scale-110" />
+                    <span className="text-muted-foreground transition-colors group-hover:text-foreground">
                       {feature}
                     </span>
                   </div>
@@ -128,11 +129,11 @@ const Pricing = () => {
 
               <Button 
                 variant={plan.buttonVariant} 
-                className="w-full group"
+                className="w-full group button-hover"
                 size="lg"
               >
                 {plan.buttonText}
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-smooth" />
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-spring" />
               </Button>
             </Card>
           ))}

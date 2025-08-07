@@ -84,19 +84,23 @@ const Features = () => {
         {/* Main Features Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {mainFeatures.map((feature, index) => (
-            <Card key={index} className="p-6 hover:shadow-medium transition-smooth border-border">
+            <Card 
+              key={index} 
+              className="p-6 border-border card-hover animate-fade-in group"
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
-                      <feature.icon className="h-6 w-6 text-primary-foreground" />
+                    <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center transition-all duration-300 group-hover:shadow-glow">
+                      <feature.icon className="h-6 w-6 text-primary-foreground transition-transform group-hover:scale-110" />
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                    <h3 className="text-xl font-semibold text-foreground mb-2 transition-colors group-hover:text-primary">
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed transition-colors group-hover:text-foreground">
                       {feature.description}
                     </p>
                   </div>
@@ -105,7 +109,7 @@ const Features = () => {
                   <img
                     src={feature.image}
                     alt={feature.title}
-                    className="w-full h-48 object-cover hover:scale-105 transition-smooth"
+                    className="w-full h-48 object-cover hover-scale transition-all duration-500"
                   />
                 </div>
               </div>
@@ -116,14 +120,18 @@ const Features = () => {
         {/* Additional Features Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {additionalFeatures.map((feature, index) => (
-            <Card key={index} className="p-6 text-center hover:shadow-soft transition-smooth border-border group">
-              <div className="w-12 h-12 bg-gradient-secondary rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-gradient-primary transition-smooth">
-                <feature.icon className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-smooth" />
+            <Card 
+              key={index} 
+              className="p-6 text-center border-border group card-hover animate-fade-in"
+              style={{ animationDelay: `${(index + 4) * 0.1}s` }}
+            >
+              <div className="w-12 h-12 bg-gradient-secondary rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-gradient-primary transition-spring">
+                <feature.icon className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-spring group-hover:scale-110" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">
+              <h3 className="text-lg font-semibold text-foreground mb-2 transition-colors group-hover:text-primary">
                 {feature.title}
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed transition-colors group-hover:text-foreground">
                 {feature.description}
               </p>
             </Card>

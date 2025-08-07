@@ -79,15 +79,19 @@ const Benefits = () => {
         {/* Benefits Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {benefits.map((benefit, index) => (
-            <Card key={index} className="p-6 hover:shadow-medium transition-smooth border-border group">
+            <Card 
+              key={index} 
+              className="p-6 border-border group card-hover animate-fade-in"
+              style={{ animationDelay: `${index * 0.15}s` }}
+            >
               <div className="space-y-4">
-                <div className={`w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-bounce`}>
-                  <benefit.icon className="h-6 w-6 text-primary-foreground" />
+                <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center group-hover:scale-110 group-hover:shadow-glow transition-spring">
+                  <benefit.icon className="h-6 w-6 text-primary-foreground transition-transform group-hover:rotate-12" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground">
+                <h3 className="text-xl font-semibold text-foreground transition-colors group-hover:text-primary">
                   {benefit.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed transition-colors group-hover:text-foreground">
                   {benefit.description}
                 </p>
               </div>
