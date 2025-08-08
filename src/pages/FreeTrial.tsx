@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowLeft, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useFreeTrialSubmission } from "@/hooks/useFreeTrialSubmission";
 
 const FreeTrial = () => {
   const [formData, setFormData] = useState({
@@ -20,12 +21,25 @@ const FreeTrial = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { submitFreeTrialForm, isSubmitting } = useFreeTrialSubmission();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log("Form submitted:", formData);
-    setIsSubmitted(true);
+    
+    const submissionData = {
+      first_name: formData.firstName,
+      last_name: formData.lastName,
+      email: formData.email,
+      company: formData.company,
+      phone: formData.phone || null,
+      business_type: formData.businessType
+    };
+
+    const result = await submitFreeTrialForm(submissionData);
+    
+    if (result.success) {
+      setIsSubmitted(true);
+    }
   };
 
   const handleInputChange = (field: string, value: string | boolean) => {
@@ -180,9 +194,9 @@ const FreeTrial = () => {
                 type="submit"
                 className="w-full"
                 size="lg"
-                disabled={!formData.agreeToTerms}
+                disabled={!formData.agreeToTerms || isSubmitting}
               >
-                Start My Free Trial
+                {isSubmitting ? "Submitting..." : "Start My Free Trial"}
               </Button>
 
               <p className="text-sm text-muted-foreground text-center">
