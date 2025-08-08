@@ -52,7 +52,7 @@ const Benefits = () => {
   ];
 
   const stats = [
-    { number: "500+", label: "Businesses Trust Us" },
+    { number: "All-in-One", label: "Unified Platform" },
     { number: "99.9%", label: "Uptime Guarantee" },
     { number: "24/7", label: "Customer Support" },
     { number: "14 Days", label: "Free Trial" }
