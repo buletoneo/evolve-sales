@@ -12,8 +12,8 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover-scale cursor-pointer">
-                InvenPro
+              <h1 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent hover-scale cursor-pointer tracking-tight">
+                INVENZO
               </h1>
             </div>
           </div>
