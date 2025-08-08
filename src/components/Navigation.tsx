@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { useState } from "react";
 
@@ -51,7 +52,9 @@ const Navigation = () => {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <Button variant="ghost" className="button-hover">Sign In</Button>
-            <Button variant="hero" className="button-hover hover:shadow-glow">Get Started</Button>
+            <Button asChild variant="hero" className="button-hover hover:shadow-glow">
+              <Link to="/free-trial">Start Free Trial</Link>
+            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -98,8 +101,8 @@ const Navigation = () => {
                 <Button variant="ghost" className="justify-start">
                   Sign In
                 </Button>
-                <Button variant="hero" className="justify-start">
-                  Get Started
+                <Button asChild variant="hero" className="justify-start">
+                  <Link to="/free-trial">Start Free Trial</Link>
                 </Button>
               </div>
             </div>
