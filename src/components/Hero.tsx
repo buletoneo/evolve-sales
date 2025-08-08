@@ -11,19 +11,19 @@ const Hero = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium animate-fade-in [animation-delay:0.2s] hover-scale">
-                🚀 Complete Business Solution
+                🎯 Unified Business Platform
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight animate-fade-in [animation-delay:0.3s]">
-                Complete{" "}
+                One System for{" "}
                 <span className="bg-gradient-hero bg-clip-text text-transparent">
-                  Sales & Inventory
+                  eCommerce & Inventory
                 </span>{" "}
-                Management System
+                Management
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed animate-fade-in [animation-delay:0.4s]">
-                Transform your business with our all-in-one platform that combines
-                POS, inventory tracking, sales analytics, and eCommerce - all designed
-                for small businesses and startups.
+                Why juggle multiple tools? INVENZO unifies your online store and inventory 
+                management in one powerful platform. Sell online, track stock, analyze sales, 
+                and manage everything from a single dashboard.
               </p>
             </div>
 
